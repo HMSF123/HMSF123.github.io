@@ -1,13 +1,62 @@
-.blogs {
+.blogs
+{
+    margin: 100px 0px -50px 200px;
+}
+.blogs .maintext,.blogs .author
+{
     border: 0px;
     margin: 0px;
     padding: 10px;
-    background-color: white;
-    max-width: 70%;
-    position: relative;
-    left: 350px;
-    background:rgba(0,0,0,0.1);
+    height: 200px;
+    background:rgba(255, 255, 255, 0.473);
 }
-body {
-    background-image: url('backgroundtest.jpg');
+.blogs .maintext
+{
+    max-width: 65%;
+    max-height: 300px;
+}
+.blogs .author
+{
+    position: absolute;
+    margin: -220px 0 0 59%;
+    width: 150px;
+}
+body 
+{
+    background-color: lightsteelblue;
+    background-image: url('https://s3.ax1x.com/2020/12/28/rTD05F.jpg') no-repeat;
+    margin: 0;
+}
+#menu
+{
+    font-family:"Consolas";
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+#menu li
+{
+    float:left;
+}
+#menu a
+{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin: 0;
+}
+#menu a:hover:not(.active)
+{
+    background-color: #111;
+}
+.active
+{
+    background-color: #4CAF50;
 }
