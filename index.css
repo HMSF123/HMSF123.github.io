@@ -21,6 +21,16 @@
     margin: -220px 0 0 59%;
     width: 150px;
 }
+.blogs a
+{
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+.blogs a:hover .maintext,.blogs a:hover .author
+{
+    background-color: rgba(169, 169, 169, 0.267);
+}
 body 
 {
     background-color: lightsteelblue;

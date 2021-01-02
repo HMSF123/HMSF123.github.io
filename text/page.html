@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="GBK">
+        <link rel="stylesheet" type="text/css" href="/index.css">
+        <title>
+            DYSYZX的OI博客集散地
+        </title>
+    </head>
+    <body>
+        <ul id="menu">
+  	    <li><a href="/index.html" class="active" style="font-size: large;">DEMS blog</a></li>
+  	    <li><a href="/news.html">公告</a></li>
+        <li><a href="https://github.com/HMSF123/HMSF123.github.io">项目</a></li>
+        <li style="float:right"><a href="https://github.com/HMSF123/HMSF123.github.io">添加</a></li>
+	</ul>
+    <script src="/tools/jquery-3.4.1.min.js"></script>
+    <script src="/tools/marked.min.js"></script>
+    <div id="content" style="margin: 100px 0px 0px 50px; background-color: rgba(255, 255, 255, 0.473); width: 70%; padding: 15px;"></div>
+    <script>
+        $.get('/text/test.md', function(response, status, xhr){
+            $("#content").html(marked(response));
+        });
+    </script>
+    </body>
+</html>
