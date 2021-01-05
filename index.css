@@ -7,8 +7,8 @@
     border: 0px;
     margin: 0px;
     padding: 10px;
-    height: 200px;
-    background:rgba(255, 255, 255, 0.473);
+    height: 150px;
+    background:rgb(255, 255, 255);
 }
 .blogs .maintext
 {
@@ -18,7 +18,7 @@
 .blogs .author
 {
     position: absolute;
-    margin: -220px 0 0 59%;
+    margin: -170px 0 0 59%;
     width: 150px;
 }
 .blogs a
@@ -27,13 +27,9 @@
     text-decoration: none;
     color: black;
 }
-.blogs a:hover .maintext,.blogs a:hover .author
-{
-    background-color: rgba(169, 169, 169, 0.267);
-}
 body 
 {
-    background-color: lightsteelblue;
+    background-color: rgb(235, 235, 235);
     /*background: url('https://s3.ax1x.com/2020/12/28/rTD05F.jpg') no-repeat 0px 10px;*/
     margin: 0;
 }
@@ -48,6 +44,7 @@ body
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 1;
 }
 #menu li
 {

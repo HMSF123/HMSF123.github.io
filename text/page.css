@@ -1,0 +1,43 @@
+@font-face
+{
+	font-family: Fira_Code;
+	src: url('/tools/FiraCode-Regular.ttf');
+}
+pre
+{
+    border: 1px solid darkgray;
+    padding: 5px;
+    background-color: rgb(250, 250, 250);
+    border-radius: 5px;
+}
+code{
+    font-family: Fira_Code;
+    font-size: 10px;
+}
+body a
+{
+    text-decoration: none;
+    border-bottom: 1px black dotted;
+    color: black;
+}
+body a:hover
+{
+    color: #0099CC;
+    border-color: #0099CC;
+}
+#owner
+{
+    position: fixed;
+    top: 100px;
+    right: 50px;
+    width: 20%;
+    text-align: center;
+    background-color: white;
+}
+#content
+{
+    margin: 100px 0px 0px 50px;
+    background-color: rgb(255, 255, 255);
+    width: 70%;
+    padding: 15px;
+}
