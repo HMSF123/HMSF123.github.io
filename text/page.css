@@ -6,13 +6,13 @@
 pre
 {
     border: 1px solid darkgray;
-    padding: 5px;
+    padding: 9px;
     background-color: rgb(250, 250, 250);
     border-radius: 5px;
 }
 code{
     font-family: Fira_Code;
-    font-size: 10px;
+    font-size: 14px;
 }
 body a
 {
