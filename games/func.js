@@ -54,7 +54,7 @@ var config = {
     subtree: false // 不用监听子节点下面的所有节点
 };
 var callback = function(mutationsList) {
-	document.getElementById("story").style.height="25%";
+	document.getElementById("story").style.height="30%";
     List=[];
     for(let mutation of mutationsList) {
         for (var i = 0; i < mutation.addedNodes.length; i++)
