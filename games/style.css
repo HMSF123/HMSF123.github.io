@@ -348,20 +348,26 @@ body.dark {
     background-color: transparent;
 }
 
-#story>p/*设置这个是为了能够让选项居中显示，正文左部有空格*/
+#story>p:not([class='choice nxt'])/*设置这个是为了能够让选项居中显示，正文左部有空格*/
 {
     padding-left: 10%;
     padding-right: 10%;
 }
 
-#story>p:not([class='choice'])
+body:not([class='switched dark']) #story>p:not([class='choice'])
 {
-    color: rgb(32, 32, 32)
+    color: rgb(32, 32, 32);
+    font-size: 1em;
+}
+body[class='switched dark'] #story>p:not([class='choice'])
+{
+    font-size: 1em;
 }
 
+
 /*下面的是关于角色图片显示的样式设定*/
-p.charaAdd{display: none;}
-p.charaDel{display: none;}
+p.chadd{display: none;}
+p.chdel{display: none;}
 
 img.chara
 {
@@ -382,3 +388,54 @@ img.chara
 {
     padding-left: 10%;
 }
+/*下面是关于‘下一句’按钮的*/
+p.nxt
+{
+    position: fixed;
+    width: auto;
+    height: 15%;
+
+    right: 10px;
+    bottom: 20px;
+
+    margin-right: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
+    border: 3px solid black;
+    /* background-color: rgb(90, 90, 90); */
+
+    overflow: hidden;
+}
+
+p.nxt a img
+{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+p.nxt a:hover img
+{
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+}
+body[class='switched dark'] p.nxt a:hover img
+{
+    background-color: rgba(255, 255, 255, 0.39);
+    transition: 0.5s;
+}
+/*下面是关于背景的*/
+#location
+{
+    z-index: -2;
+    position: fixed;
+    top: 0px;
+    height: 70%;
+    width: 100%;
+
+    margin-left: -10px;
+    margin-top: -35px;
+
+    background-repeat: repeat-x;
+    background-size: 100%;
+}
+p.loc{display: none;}

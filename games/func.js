@@ -8,21 +8,28 @@ function check_ins(List)//用于检测是否有新的控制性文本出现并做
 			else document.getElementById("namebox").style.display="initial";
 			document.getElementById("namebox").innerText=List[i].innerText;
 		}
-		if(List[i].className=="charaAdd hide"||List[i].className=="charaAdd")//增加角色图片
+		if(List[i].className=="chadd hide"||List[i].className=="chadd")//增加角色图片
 		{
 			var temp=document.createElement("img");
 			temp.setAttribute("src",List[i].innerText.slice(0,-1)+".png");
 			temp.setAttribute("class","chara");
 			document.getElementById("character").appendChild(temp);
 		}
-		if(List[i].className=="charaDel hide"||List[i].className=="charaDel")//移除角色图片
+		if(List[i].className=="chdel hide"||List[i].className=="chdel")//移除角色图片
 		{
 			var temp=document.querySelector("img[src='"+List[i].innerText.slice(0,-1)+".png']");
 			document.getElementById("character").removeChild(temp);
 		}
-		if(List[i].className=="bkgnd hide"||List[i].className=="bkgnd")
+		if(List[i].className=="loc hide"||List[i].className=="loc")
 		{
-			
+			document.getElementById("location").style="background-image: url("+List[i].innerText.slice(0,-1)+".png);";
+		}
+		if((List[i].className=="choice hide"||List[i].className=="choice")&&List[i].innerText=="next")
+		{
+			console.log("succ");
+			List[i].style.padding="0px";
+			List[i].classList.add("nxt");
+			List[i].firstChild.innerHTML="<img src='next.png' style='height: 100%;'>"
 		}
 	}
 }
@@ -30,6 +37,7 @@ function roll_down()//自动滚动
 {
 	var temp=document.getElementById("story");
 	console.log("st");
+	temp.scrollTop=0;
 	setTimeout(function()
 	{
 		var intv=setInterval(function()
