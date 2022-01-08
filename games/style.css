@@ -224,6 +224,7 @@ img.chara.hide{
         top: 0;
         left: 0;
         right: 0;
+        border: none;
     }
 }
 
@@ -363,18 +364,18 @@ body.dark {
     background-color: transparent;
 }
 
-#story>p:not([class='choice nxt'])/*设置这个是为了能够让选项居中显示，正文左部有空格*/
+#story>p:not(p.nxt)/*设置这个是为了能够让选项居中显示，正文左部有空格*/
 {
     padding-left: 10%;
     padding-right: 10%;
 }
 
-body[class='switched'] #story>p:not([class='choice'])
+body:not(body.dark) #story>p:not(p.choice)
 {
     color: rgb(32, 32, 32);
     font-size: 1em;
 }
-body #story>p:not([class='choice'])
+body #story>p:not(p.choice)
 {
     font-size: 1em;
 }
@@ -420,31 +421,28 @@ p.nxt
     margin-top: 0px;
     margin-bottom: 0px;
     padding: 0px;
-    border: 3px solid black;
     /* background-color: rgb(90, 90, 90); */
-
-    overflow: hidden;
 }
 
 p.nxt a img
 {
     background-color: rgba(0, 0, 0, 0.1);
+    border: 3px solid black;
 }
-
+.dark p.nxt a img
+{
+    border: 3px solid transparent;
+}
 p.nxt a:hover img
 {
     background-color: rgba(0, 0, 0, 0.5);
     transition: 0.5s;
 }
-body[class='switched dark'] p.nxt a:hover img
+.dark p.nxt a:hover img
 {
     background-color: rgba(255, 255, 255, 0.39);
     transition: 0.5s;
-}
-body[class='dark'] p.nxt a:hover img
-{
-    background-color: rgba(255, 255, 255, 0.39);
-    transition: 0.5s;
+    
 }
 /*下面是关于背景的*/
 #location
@@ -453,7 +451,7 @@ body[class='dark'] p.nxt a:hover img
     position: fixed;
     top: 0px;
     height: 70%;
-    width: 100%;
+    width: calc(100vw + 5px);
 
     margin-left: -10px;
     margin-top: -35px;
