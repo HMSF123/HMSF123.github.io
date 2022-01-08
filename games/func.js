@@ -1,3 +1,15 @@
+/*
+     ||=====||
+     ||警告！||
+     ||=====||
+
+	 作者的代码水平太烂了，出于为您健康安全的考虑，请不要查看这份代码！
+	 代码内容包括但不限于：
+	 -意义不明的变量与函数命名
+	 -低效的暴力遍历
+	 -随意拼凑的函数
+*/
+
 var _NAME_BOX=document.getElementById("namebox");
 function check_ins(List)//用于检测是否有新的控制性文本出现并做出相应反应
 {
@@ -20,6 +32,8 @@ function check_ins(List)//用于检测是否有新的控制性文本出现并做
 		}
 		if(List[i].className=="chdel hide"||List[i].className=="chdel")//移除角色图片
 		{
+			if(document.querySelector("img[src='"+List[i].innerText.slice(0,-7)+".png']")==null)
+				{continue;}
 			var temp=document.querySelector("img[src='"+List[i].innerText.slice(0,-7)+".png']");
 			setTimeout(function(){
 				temp.classList.add("hide");
@@ -103,3 +117,24 @@ var callback = function(mutationsList) {
 };
 var observer = new MutationObserver(callback);// 创建一个观察器实例并传入回调函数
 observer.observe(targetNode, config);// 以上述配置开始观察目标节点
+document.addEventListener("keydown",function(event){
+	if(document.getElementsByClassName("nxt").length==0) return;
+	var key= event.which || event.keyCode;
+	var button=document.querySelector("img[src='next.png']");
+	var ifdark=document.body.classList.contains("dark");
+	if(key==13||key==32)
+	{
+		if(ifdark){button.style.backgroundColor="rgba(255, 255, 255, 0.39)";}
+		else{button.style.backgroundColor="rgba(0, 0, 0, 0.5)";}
+	}
+});
+document.addEventListener("keyup",function(event){
+	if(document.getElementsByClassName("nxt").length==0) return;
+	var key= event.which || event.keyCode;
+	var button=document.querySelector("img[src='next.png']");
+	if(key==13||key==32)
+	{
+		button.style.backgroundColor="rgba(0, 0, 0, 0.1)";
+		document.querySelector("p.nxt a").click();
+	}
+});
