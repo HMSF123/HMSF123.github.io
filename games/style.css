@@ -114,7 +114,7 @@ p {
 
 a {
     font-weight: 700;
-    color: #b97c2c;
+    color: #d89031;
     font-family: sans-serif;
     transition: color 0.6s;
     text-decoration: none;
@@ -146,6 +146,11 @@ img {
 
 .container>* {
     opacity: 1.0;
+    transition: opacity 400ms;
+}
+
+img.chara.hide{
+    opacity: 0.0;
     transition: opacity 400ms;
 }
 
@@ -188,7 +193,7 @@ img {
 
 #controls {
     z-index: 4;
-    font-size: 9pt;
+    font-size: 12pt;
     text-align: center;
     padding-bottom: 6px;
     position: fixed;
@@ -197,6 +202,11 @@ img {
     user-select: none;
     background: white;
     transition: color 0.6s, background 0.6s;
+
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 2px;
+    border: 3px solid rgb(168, 167, 167);
 }
 
 #controls [disabled] {
@@ -265,6 +275,11 @@ body.dark {
 }
 /* 下面的是自定义内容 */
 
+.action
+{
+    font-style: italic;
+    font-weight: bolder;
+}
 /*下面的是角色名称以及对话框的样式设定*/
 #namebox
 {
@@ -344,7 +359,7 @@ body.dark {
 
     font-size:20px;
     overflow-y: auto;
-    color: rgb(112, 112, 112);
+    color: rgb(82, 82, 82);
     background-color: transparent;
 }
 
@@ -354,16 +369,15 @@ body.dark {
     padding-right: 10%;
 }
 
-body:not([class='switched dark']) #story>p:not([class='choice'])
+body[class='switched'] #story>p:not([class='choice'])
 {
     color: rgb(32, 32, 32);
     font-size: 1em;
 }
-body[class='switched dark'] #story>p:not([class='choice'])
+body #story>p:not([class='choice'])
 {
     font-size: 1em;
 }
-
 
 /*下面的是关于角色图片显示的样式设定*/
 p.chadd{display: none;}
@@ -372,21 +386,25 @@ p.chdel{display: none;}
 img.chara
 {
     z-index: -1;
-    
-    position: fixed;
 
-    bottom: 30%;
     float: left;
 
-    padding-bottom: 35px;
-
-    max-width: 35%;
-    max-height: 50%;
+    max-width: 35vw;
+    max-height: 45vh;
+    margin-right: -15vw;
 }
 
 #character
 {
+    position: fixed;
+    bottom: 30%;
+
+    height: fit-content;
+    width: 100%;
+
     padding-left: 10%;
+    margin-bottom: 35px;
+    margin-left: -10px;
 }
 /*下面是关于‘下一句’按钮的*/
 p.nxt
@@ -419,6 +437,11 @@ p.nxt a:hover img
     transition: 0.5s;
 }
 body[class='switched dark'] p.nxt a:hover img
+{
+    background-color: rgba(255, 255, 255, 0.39);
+    transition: 0.5s;
+}
+body[class='dark'] p.nxt a:hover img
 {
     background-color: rgba(255, 255, 255, 0.39);
     transition: 0.5s;

@@ -201,6 +201,8 @@
     function restart() {
         story.ResetState();
 
+        clear_PaN();
+
         setVisible(".header", true);
 
         // set save point to here
@@ -297,7 +299,8 @@
 
     // Loads save state if exists in the browser memory
     function loadSavePoint() {
-
+        // console.log("loadSavePoint when the story begin form where it ended last time");
+        load_PaN();
         try {
             let savedState = window.localStorage.getItem('save-state');
             if (savedState) {
@@ -344,6 +347,7 @@
         let saveEl = document.getElementById("save");
         if (saveEl) saveEl.addEventListener("click", function(event) {
             try {
+                console.log("now saving");save_PaN();
                 window.localStorage.setItem('save-state', savePoint);
                 document.getElementById("reload").removeAttribute("disabled");
                 window.localStorage.setItem('theme', document.body.classList.contains("dark") ? "dark" : "");
@@ -364,6 +368,7 @@
             removeAll("p");
             removeAll("img");
             try {
+                load_PaN();console.log("load from lacal save");
                 let savedState = window.localStorage.getItem('save-state');
                 if (savedState) story.state.LoadJson(savedState);
             } catch (e) {
