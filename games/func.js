@@ -18,8 +18,12 @@ function check_ins(List)//用于检测是否有新的控制性文本出现并做
 		if(List[i].className=="name hide"||List[i].className=="name")//调整角色名称栏
 		{
 			_NAME_BOX.innerText=List[i].innerText;
-			if(List[i].innerText=="none\n") _NAME_BOX.style.display="none";
-			else _NAME_BOX.style.display="initial";
+			if(List[i].innerText=="none\n")
+			{
+				if(window.innerWidth <= 820) _NAME_BOX.style.color="transparent";
+				else _NAME_BOX.style.display="none";
+			}
+			else{_NAME_BOX.style.display="initial";_NAME_BOX.style.color="rgb(175, 175, 175)";}
 		}
 		if(List[i].className=="chadd hide"||List[i].className=="chadd")//增加角色图片
 		{
@@ -105,7 +109,8 @@ var config = {
     subtree: false // 不用监听子节点下面的所有节点
 };
 var callback = function(mutationsList) {
-	document.getElementById("story").style.height="30%";
+	if(window.innerWidth >= 580) document.getElementById("story").style.height="30%";
+	else document.getElementById("story").style.height="60%";
     List=[];
     for(let mutation of mutationsList) {
         for (var i = 0; i < mutation.addedNodes.length; i++)

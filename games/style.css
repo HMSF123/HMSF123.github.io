@@ -318,6 +318,24 @@ body.dark {
     color: rgb(175, 175, 175);
     line-height: 1.7em;
 }
+@media screen and (max-width: 820px)
+{
+    #namebox
+    {
+        width: calc(90vw - 10px);
+        left: 0px;
+        bottom: calc(30vh - 20px);
+        text-align: left;
+        padding-left: 10vw;
+    }
+}
+@media screen and (max-width: 580px)
+{
+    #namebox
+    {
+        bottom: calc(60vh - 20px);
+    }
+}
 .dark #namebox
 {
     border: 5px solid rgb(75, 75, 75);
@@ -344,6 +362,14 @@ body.dark {
     border-top: 5px solid rgb(32, 32, 32);
 
     background-color: rgba(49, 49, 49, 0.285);
+}
+@media screen and (max-width: 580px)
+{
+    #chatbox
+    {
+        height: 60vh;
+        top: 40vh;
+    }
 }
 .dark #chatbox
 {
@@ -374,6 +400,15 @@ body.dark {
     overflow-y: auto;
     color: rgb(82, 82, 82);
     background-color: transparent;
+}
+
+@media screen and (max-width: 580px)
+{
+    #story
+    {
+        max-height: 60%;
+        top: 40%;
+    }
 }
 
 #story>p:not(p.nxt)/*设置这个是为了能够让选项居中显示，正文左部有空格*/
@@ -418,6 +453,20 @@ img.chara
     padding-left: 10%;
     margin-bottom: 35px;
     margin-left: -10px;
+}
+@media screen and (max-width: 820px)
+{
+    #character
+    {
+        bottom: calc(30vh + 30px + 1.7em);
+    }
+}
+@media screen and (max-width: 580px)
+{
+    #character
+    {
+        bottom: calc(60vh + 30px + 1.7em);
+    }
 }
 /*下面是关于‘下一句’按钮的*/
 p.nxt
@@ -470,5 +519,19 @@ p.nxt a:hover img
 
     background-repeat: repeat-x;
     background-size: 100%;
+}
+@media screen and (max-width: 890px)
+{
+    #location
+    {
+        background-size: auto 100%;
+    }
+}
+@media screen and (max-width: 580px)
+{
+    #location
+    {
+        margin-top: calc(0px - 35px - 30vh);
+    }
 }
 p.loc{display: none;}
