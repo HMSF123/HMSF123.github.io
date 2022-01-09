@@ -322,9 +322,11 @@ body.dark {
 {
     #namebox
     {
+        position: fixed;
         width: calc(90vw - 10px);
         left: 0px;
-        bottom: calc(30vh - 20px);
+        bottom: calc(30vh + 30px);
+        margin-bottom: 0px;
         text-align: left;
         padding-left: 10vw;
     }
@@ -333,7 +335,8 @@ body.dark {
 {
     #namebox
     {
-        bottom: calc(60vh - 20px);
+        bottom: calc(60vh + 30px);
+        margin-bottom: 0px;
     }
 }
 .dark #namebox
