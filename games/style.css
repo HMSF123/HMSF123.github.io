@@ -136,7 +136,7 @@ img {
     max-width: 100%;
 }
 
-.container .hide {
+.container .hide:not(p.choice) {
     opacity: 0.0;
 }
 
@@ -144,7 +144,7 @@ img {
     display: none;
 }
 
-.container>* {
+.container>*:not(p.choice) {
     opacity: 1.0;
     transition: opacity 400ms;
 }
@@ -152,6 +152,18 @@ img {
 img.chara.hide{
     opacity: 0.0;
     transition: opacity 400ms;
+}
+
+.choice.hide
+{
+    opacity: 0.0;
+    margin-left: -120vw;
+}
+.choice
+{
+    margin-left: 0px;
+    opacity: 1.0;
+    transition: 600ms;
 }
 
 /*
