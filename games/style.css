@@ -323,9 +323,9 @@ body.dark {
     #namebox
     {
         position: fixed;
-        width: calc(90vw - 10px);
+        width: calc(90% - 10px);
         left: 0px;
-        bottom: calc(30vh + 30px);
+        bottom: calc(30% + 30px);
         margin-bottom: 0px;
         text-align: left;
         padding-left: 10vw;
@@ -335,7 +335,7 @@ body.dark {
 {
     #namebox
     {
-        bottom: calc(60vh + 30px);
+        bottom: calc(60% + 30px);
         margin-bottom: 0px;
     }
 }
@@ -461,14 +461,14 @@ img.chara
 {
     #character
     {
-        bottom: calc(30vh + 30px + 1.7em);
+        bottom: calc(30% + 30px + 1.7em);
     }
 }
 @media screen and (max-width: 580px)
 {
     #character
     {
-        bottom: calc(60vh + 30px + 1.7em);
+        bottom: calc(60% + 30px + 1.7em);
     }
 }
 /*下面是关于‘下一句’按钮的*/
