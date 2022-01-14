@@ -370,8 +370,8 @@ body.dark {
 {
     #chatbox
     {
-        height: 60vh;
-        top: 40vh;
+        height: 60%;
+        top: 40%;
     }
 }
 .dark #chatbox
@@ -441,7 +441,7 @@ img.chara
     float: left;
 
     max-width: 35vw;
-    max-height: 45vh;
+    max-height: calc(45 * var(--vh,vh));
     margin-right: -15vw;
 }
 
@@ -534,7 +534,7 @@ p.nxt a:hover img
 {
     #location
     {
-        margin-top: calc(0px - 35px - 30vh);
+        margin-top: calc(0px - 35px - 30 * var(--vh,vh));
     }
 }
 p.loc{display: none;}

@@ -143,3 +143,10 @@ document.addEventListener("keyup",function(event){
 		document.querySelector("p.nxt a").click();
 	}
 });
+function set_height()
+{
+	let vh=window.innerHeight*0.01;
+	document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+window.onload=set_height;
+window.onresize=set_height;
