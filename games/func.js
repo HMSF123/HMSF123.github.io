@@ -15,9 +15,10 @@ function check_ins(List)//用于检测是否有新的控制性文本出现并做
 {
 	for(var i=0;i<List.length;i++)
 	{
-		if(List[i].className=="name hide"||List[i].className=="name")//调整角色名称栏
+		if(List[i].classList.contains("name"))//调整角色名称栏
 		{
 			_NAME_BOX.innerText=List[i].innerText;
+			// 记得把这里改成通过添加hide类来实现
 			if(List[i].innerText=="none\n")
 			{
 				if(window.innerWidth <= 820) _NAME_BOX.style.color="transparent";
@@ -25,7 +26,7 @@ function check_ins(List)//用于检测是否有新的控制性文本出现并做
 			}
 			else{_NAME_BOX.style.display="initial";_NAME_BOX.style.color="rgb(175, 175, 175)";}
 		}
-		if(List[i].className=="chadd hide"||List[i].className=="chadd")//增加角色图片
+		if(List[i].classList.contains("chadd"))//增加角色图片
 		{
 			if(document.querySelector("img[src='"+List[i].innerText.slice(0,-1)+".png']"))
 				{continue;}
@@ -34,7 +35,7 @@ function check_ins(List)//用于检测是否有新的控制性文本出现并做
 			temp.setAttribute("class","chara");
 			document.getElementById("character").appendChild(temp);
 		}
-		if(List[i].className=="chdel hide"||List[i].className=="chdel")//移除角色图片
+		if(List[i].classList.contains("chdel"))//移除角色图片
 		{
 			if(document.querySelector("img[src='"+List[i].innerText.slice(0,-7)+".png']")==null)
 				{continue;}
@@ -46,11 +47,11 @@ function check_ins(List)//用于检测是否有新的控制性文本出现并做
 				},500);
 			},List[i].innerText.slice(-7,-1));
 		}
-		if(List[i].className=="loc hide"||List[i].className=="loc")
+		if(List[i].classList.contains("loc"))
 		{
 			document.getElementById("location").style="background-image: url("+List[i].innerText.slice(0,-1)+".png);";
 		}
-		if((List[i].className=="choice hide"||List[i].className=="choice")&&List[i].innerText=="next")
+		if(List[i].classList.contains("choice")&&List[i].innerText=="next")
 		{
 			// console.log("succ");
 			List[i].style.padding="0px";
@@ -109,8 +110,9 @@ var config = {
     subtree: false // 不用监听子节点下面的所有节点
 };
 var callback = function(mutationsList) {
-	if(window.innerWidth >= 580) document.getElementById("story").style.height="30%";
-	else document.getElementById("story").style.height="60%";
+	if(window.innerWidth<=580 && window.innerHeight>=400)
+		document.getElementById("story").style.height="calc(60% - 45px)";
+	else document.getElementById("story").style.height="30%";
     List=[];
     for(let mutation of mutationsList) {
         for (var i = 0; i < mutation.addedNodes.length; i++)
@@ -120,6 +122,7 @@ var callback = function(mutationsList) {
     check_ins(List);
 	// console.log("!!!");
 };
+
 var observer = new MutationObserver(callback);// 创建一个观察器实例并传入回调函数
 observer.observe(targetNode, config);// 以上述配置开始观察目标节点
 document.addEventListener("keydown",function(event){
@@ -133,6 +136,8 @@ document.addEventListener("keydown",function(event){
 		else{button.style.backgroundColor="rgba(0, 0, 0, 0.5)";}
 	}
 });
+
+
 document.addEventListener("keyup",function(event){
 	if(document.getElementsByClassName("nxt").length==0) return;
 	var key= event.which || event.keyCode;
@@ -149,4 +154,9 @@ function set_height()
 	document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
 window.onload=set_height;
-window.onresize=set_height;
+window.onresize=function(){
+	set_height();
+	if(window.innerWidth<=580 && window.innerHeight>=400)
+		document.getElementById("story").style.height="calc(60% - 45px)";
+	else document.getElementById("story").style.height="30%";
+};
