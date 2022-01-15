@@ -153,7 +153,10 @@ function set_height()
 	let vh=window.innerHeight*0.01;
 	document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
-window.onload=set_height;
+window.onload=function(){
+	set_height();
+	window.scrollTo(0,1);
+};
 window.onresize=function(){
 	set_height();
 	if(window.innerWidth<=580 && window.innerHeight>=400)
