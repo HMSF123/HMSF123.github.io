@@ -155,7 +155,7 @@ function set_height()
 }
 window.onload=function(){
 	set_height();
-	window.scrollTo(0,1);
+	window.scrollTo(0,20);
 };
 window.onresize=function(){
 	set_height();
