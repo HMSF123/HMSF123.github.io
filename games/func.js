@@ -153,15 +153,7 @@ function set_height()
 	let vh=window.innerHeight*0.01;
 	document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
-window.onload=function(){
-	set_height();
-	if(document.documentElement.scrollHeight <= document.documentElement.clientHeight)
-	{
-		bodyTag = document.getElementsByTagName('body')[0];
-		bodyTag.style.height = document.documentElement.clientWidth / screen.width * screen.height + 'px';
-	}
-	window.scrollTo(0,20);
-};
+window.onload=set_height;
 window.onresize=function(){
 	set_height();
 	if(window.innerWidth<=580 && window.innerHeight>=400)
