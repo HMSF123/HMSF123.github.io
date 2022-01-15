@@ -155,6 +155,11 @@ function set_height()
 }
 window.onload=function(){
 	set_height();
+	if(document.documentElement.scrollHeight <= document.documentElement.clientHeight)
+	{
+		bodyTag = document.getElementsByTagName('body')[0];
+		bodyTag.style.height = document.documentElement.clientWidth / screen.width * screen.height + 'px';
+	}
 	window.scrollTo(0,20);
 };
 window.onresize=function(){
